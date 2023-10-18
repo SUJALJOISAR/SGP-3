@@ -7,20 +7,14 @@ const Footer = () => {
   return (
     <> 
      <div className="footer-container">
-<<<<<<< HEAD
-        <div className="waves">
-=======
+        {/* <div className="waves"> */}
         {/* <div className="waves">
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
             <div className="wave" id="wave1"></div>
             <div className="wave" id="wave2"></div>
             <div className="wave" id="wave3"></div>
             <div className="wave" id="wave4"></div>
-<<<<<<< HEAD
         </div>
-=======
         </div> */}
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
     
         <div className="footer-logo">
             <img src={web} alt="" style={{ height: '60px', width: '60px' ,}}/>
