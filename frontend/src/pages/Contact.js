@@ -9,17 +9,23 @@ import { Envelope } from "react-bootstrap-icons";
 import { Facebook } from "react-bootstrap-icons";
 import { Instagram } from "react-bootstrap-icons";
 import { Whatsapp } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import ProviderContext from '../Context/ProviderContext';
 
 const Contact = () => {
   const msg="Hello,Ashish Gandha";
 
+  const show = useContext(ProviderContext)
+  const history=useNavigate();
+
   const whatsappLink1 = `https://api.whatsapp.com/send?phone=${9924074741}&text=${encodeURIComponent(msg)}`;
-  const [formData] = useState({
+  const [formData,setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     address: "",
-    message: ""
+    message: "",
   });
 
   // const handleChange = (e) => {
@@ -30,17 +36,37 @@ const Contact = () => {
   //   }));
   // };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    const emailBody = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nAddress: ${formData.address}\nMessage: ${formData.message}`
-    );
+  try {
+    const response = await fetch('http://localhost:8080/api/v1/auth/contactus', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({name:formData.name,email:formData.email,phone:formData.phone,address:formData.address,message:formData.message})
+    });
 
-    const mailToLink = `mailto:ashishgandha999@gmail.com,sandeepgandha@gmail.com?subject=Inquiry%20from%20Website&body=${emailBody}`;
+    if (response.status === 200) {
+      show.updateError(1,'success',"Thankyou For Contacting Us!");
+        setTimeout(() => {
+          show.updateError(0," "," ")
+        }, 3000);
+      
+      history("/");
+    } else {
+      console.log("invalid credential")
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+  }
 
-    window.location.href = mailToLink;
-  };
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
   return (
     <>
       <Layout title={"Contact Us-Ashutosh Enterprise"}>
@@ -112,27 +138,27 @@ const Contact = () => {
                 <form onSubmit={handleSubmit}>
 
                 <div className="form-floating mb-3">
-                <input type="text" class="form-control" id="floatingInput"></input>
+                <input type="text" class="form-control" id="floatingInput" value={formData.name} name='name' onChange={onChange}></input>
                 <label for="floatingInput">Name</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput"></input>
+                <input type="email" class="form-control" id="floatingInput" value={formData.email} name='email' onChange={onChange}></input>
                 <label for="floatingInput">Email</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="floatingInput"></input>
+                <input type="number" class="form-control" id="floatingInput" value={formData.phone} name='phone' onChange={onChange}></input>
                 <label for="floatingInput">Phone</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                <textarea class="form-control" id="exampleFormAddress" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormAddress" rows="3" value={formData.address} name='address' onChange={onChange}></textarea>
                 <label for="floatingInput">Address</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value={formData.message} name='message' onChange={onChange}></textarea>
                 <label for="exampleFormControlTextarea1">Message </label>
                 </div>
 

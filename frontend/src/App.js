@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import StatesProvider from './Context/StatesProvider';
 import HomePage from './pages/HomePage';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -8,14 +9,26 @@ import Pagenotfound from './pages/Pagenotfound';
 import Gallery from './pages/gallery';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
-import { AuthProvider } from './pages/auth/AuthContext';
+import Cement from './pages/cement';
+import Paint from './pages/paint';
+import Industry from './pages/industry';
+import Dashboard from './pages/user/Dashboard';
+import PrivateRoutes from './components/Routes/Private';
+import AdminRoutes from './components/Routes/AdminRotes';
 
 function App() {
   return (
+    <>
+    <StatesProvider>
     <Router>
-      <AuthProvider>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/dashboard" element={<PrivateRoutes/>} >
+            <Route path='user' element={<Dashboard/>}/>
+          </Route>
+          <Route path="/dashboard" element={<AdminRoutes/>} >
+            <Route path='admin' element={<Dashboard/>}/>
+          </Route>
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/about" element={<About />} />
@@ -23,9 +36,13 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/*" element={<Pagenotfound />} />
+          <Route path="/cement" element={<Cement />} />
+          <Route path="/paint" element={<Paint />} />
+          <Route path="/industry" element={<Industry />} />
         </Routes>
-      </AuthProvider>
     </Router>
+    </StatesProvider>
+    </>
   );
 }
 
