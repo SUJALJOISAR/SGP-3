@@ -38,9 +38,6 @@ font-family: 'Roboto', sans-serif; */
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-
-=======
 /* Styles specific to the logged-in state */
 .logged-in .navbar {
   padding-left: 10px; /* Adjust the left padding when logged in */
@@ -52,7 +49,6 @@ font-family: 'Roboto', sans-serif; */
   padding-left: 20px; /* Adjust the left padding when logged out */
   padding-right: 20px; /* Adjust the right padding when logged out */
 }
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
 
 
 .nav-scroller {
@@ -155,11 +151,8 @@ font-family: 'Roboto', sans-serif; */
 .footer-container {
   position: relative;
   width: 100%;
-<<<<<<< HEAD
-  background: #3586ff;
-=======
+  /* background: #3586ff; */
   background: rgba(0, 0, 0, 0.867);
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
   min-height: 100px;
   padding: 20px 0; /* Adjust top and bottom padding */
   display: flex;
@@ -215,11 +208,7 @@ font-family: 'Roboto', sans-serif; */
   font-size:1.1em;
 }
 
-<<<<<<< HEAD
-.footer-container .wave{
-=======
 /* .footer-container .wave{
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
   position:absolute;
   top:-70px;
   left:0;
@@ -227,15 +216,12 @@ font-family: 'Roboto', sans-serif; */
   height:100px;
   background:url(./pages/photospages/wave.png);
   background-size:1000px 100px;
-<<<<<<< HEAD
 }
 
 .footer-container .wave#wave1{
-=======
 } */
 
 /* .footer-container .wave#wave1{
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
   z-index:1000;
   opacity:1;
   bottom:0;
@@ -261,15 +247,12 @@ font-family: 'Roboto', sans-serif; */
   opacity:0.5;
   bottom:20px;
   animation:animateWave_02 3s linear infinite;
-<<<<<<< HEAD
 }
 
 @keyframes animateWave{
-=======
 } */
 
 /* @keyframes animateWave{
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
   0%{
       background-position-x:1000px;
   }
@@ -285,9 +268,7 @@ font-family: 'Roboto', sans-serif; */
   100%{
       background-position-x:1000px;
   }
-<<<<<<< HEAD
 }
-=======
 } */
 
 .header-short-username {
@@ -305,10 +286,3 @@ font-family: 'Roboto', sans-serif; */
     margin-right: 190px; /* Adjust the right margin for long username */
   }
 }
-
-
-
-
-
-
->>>>>>> 96a9b37adb01aa09c9c0a0875f47ffd543d8284c
