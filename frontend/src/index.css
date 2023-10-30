@@ -18,11 +18,65 @@ font-family: 'Roboto', sans-serif; */
   color: black;
 }
 
+/* .container-fluid {
+  width: 100%;
+  height: 60px;
+  background: #4776e6;
+  box-shadow: 0 0 10px 1px;
+  margin-bottom: 40px;
+} */
+
+/* .nav-item .nav-link:after,
+.nav-item .nav-link::before{
+  content: "";
+  position: absolute;
+  width: 0%;
+  display: block;
+  height: 1px;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+  transition: all 300ms ease-in;
+} */
+
+/* .nav-link::before,
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px; 
+  bottom: 0;
+  transition: width 0.3s;
+} */
+
+/* .nav-item .nav-link:after {
+  bottom: 25%;
+  left: 0;
+}
+
+.nav-item .nav-link:before {
+  top: 25%;
+  right: 0;
+} */
+
+
+/* .nav-item .nav-link:hover::after {
+  width: 100%;
+  height: 1px;
+  bottom: 30%;
+  background-color: #fff;
+}
+.nav-item .nav-link::before {
+  width: 100%;
+  height: 1px;
+  top: 30%;
+  background-color: #fff;
+} */
+
 .navbar{
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
   text-transform: uppercase;
-  background-color: #fff;
+  background-color: #4776e6;
   padding-left: 20px; /* Adjust the left padding to create space for the brand/logo */
   padding-right: 20px; /* Adjust the right padding for spacing on both sides */
   width: 100%;
@@ -47,8 +101,54 @@ font-family: 'Roboto', sans-serif; */
 
 /* Underline the active link */
 .nav-link.active {
-  text-decoration: underline;
+  text-decoration: none;
 }
+
+/* Add this CSS rule to remove the default underline for all nav links */
+.navbar .nav-link {
+  text-decoration: none;
+  color: purple; /* Set the color for non-active links */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Add a hover effect to change the color of non-active links */
+.navbar .nav-link:hover {
+  color: red; /* Change color on hover */
+}
+
+/* Add this CSS rule to underline the active link when clicked */
+.navbar .nav-link:active {
+  /* position: relative; */
+  text-decoration: none;
+  color: rgb(73, 0, 128); /* Set the color for the active link */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Style the "login" navlink differently */
+.navbar .nav-link.login {
+  color: blue; /* Set a different color for the "login" navlink */
+}
+
+/* Add a hover effect with a smooth transition for the underline */
+.navbar .nav-link:not(.login):hover {
+  color: red; /* Change color on hover */
+  position: relative;
+}
+
+.navbar .nav-link:active:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: orange; /* Set the color for the active link's underline */
+  bottom: 0;
+  left: 0;
+  /* transition: width 0.3s ease; */
+  transition: transform 0.3s ease, width 0.3s ease; /* Smooth transition for both width and position *
+  transform-origin: left; /* Makes the transition start from the left */
+}
+
+
 
 /* Update the container width to match the browser width */
 .container {
@@ -253,15 +353,16 @@ font-family: 'Roboto', sans-serif; */
   --bs-gutter-x: 0;
 }
 
-.nav-link{
-  color: blue;
-}
 
-.nav-link:hover{
+/* .nav-link{
+  /* color: blue; 
+} */
+
+/* .nav-link:hover{
   color: red;
-}
+} */
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-  color: blue;
-}
+/* .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  /* color: blue; 
+} */
 

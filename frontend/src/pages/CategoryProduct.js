@@ -33,8 +33,8 @@ const CategoryProduct = () => {
   return (
     <Layout>
       <div className="container mt-3">
-        <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} result found </h6>
+        <h4 className="text-center">{category?.name}</h4>
+        <h6 className="text-center">{products?.length} Items found </h6>
 
         <div className="row categoryproduct">
           <div className="col-md-12 offset-1">

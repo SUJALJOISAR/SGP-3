@@ -41,12 +41,12 @@ const Home = () => {
   // const [auth,setAuth]=useAuth();
   const [auth]=useAuth();
 
-  const [setSelectedVideo] = useState(null);
+  const [SelectedVideo,setSelectedVideo] = useState(null);
 
   // const [auth,setAuth]=useAuth();
 
-  const onVideoClick = (videoId) => {
-    setSelectedVideo(videoId);
+  const onVideoClick = (videoLink) => {
+    window.open(videoLink, '_blank');
   };
 
   const cardBorderRadius = '10px';
@@ -60,7 +60,6 @@ const Home = () => {
   return (
     <Layout title="Home-Ashutosh Enterprise">
       {/* Automatic Carousel */}
-      {/* <pre>{JSON.stringify(auth,null,4)}</pre> */}
       <Carousel>
         <Carousel.Item>
           <img className="d-block w-100" src={require('../pages/photospages/ambuja_cement.webp')} alt="First slide" style={{'height':'580px','width':'1200px'}}/>
